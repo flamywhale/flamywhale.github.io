@@ -111,14 +111,14 @@
   <meta name="description" content="set up ss on a server">
 <meta name="keywords" content="records">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Build SS on a personal server">
+<meta property="og:title" content="Build ss on a personal server">
 <meta property="og:url" content="https://flamywhale.github.io/2018/10/16/ss-server-build/index.html">
 <meta property="og:site_name" content="The Island">
 <meta property="og:description" content="set up ss on a server">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-18T15:27:40.538Z">
+<meta property="og:updated_time" content="2018-11-23T12:19:42.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Build SS on a personal server">
+<meta name="twitter:title" content="Build ss on a personal server">
 <meta name="twitter:description" content="set up ss on a server">
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Build SS on a personal server | The Island</title>
+  <title>Build ss on a personal server | The Island</title>
   
 
 
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Build SS on a personal server
+          <h1 class="post-title" itemprop="name headline">Build ss on a personal server
               
             
           </h1>
@@ -379,7 +379,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-18 23:27:40" itemprop="dateModified" datetime="2018-10-18T23:27:40+08:00">2018-10-18</time>
+                <time title="修改时间：2018-11-23 20:19:42" itemprop="dateModified" datetime="2018-11-23T20:19:42+08:00">2018-11-23</time>
               
             
           </span>
@@ -434,8 +434,8 @@
       
         <h2 id="服务器环境"><a href="#服务器环境" class="headerlink" title="服务器环境"></a>服务器环境</h2><p><code>Ubuntu 16.04</code></p>
 <h2 id="登录服务器"><a href="#登录服务器" class="headerlink" title="登录服务器"></a>登录服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@123.123.123.123</span><br></pre></td></tr></table></figure>
-<h2 id="进行SS的环境配置"><a href="#进行SS的环境配置" class="headerlink" title="进行SS的环境配置"></a>进行SS的环境配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip                <span class="comment"># 安装pip</span></span><br><span class="line">sudo apt install python-setuptools         <span class="comment"># 安装必要工具</span></span><br><span class="line">sudo pip install shadowsocks               <span class="comment"># 安装服务端的shadowsocks软件</span></span><br><span class="line">sudo vim /etc/shadowsocks.json             <span class="comment"># 添加服务端使用的配置文件，文件内容如下所示</span></span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start <span class="comment"># 在服务端根据刚刚的配置，启动shadowsocks</span></span><br></pre></td></tr></table></figure>
-<h3 id="shadowsocks服务器上的简单配置"><a href="#shadowsocks服务器上的简单配置" class="headerlink" title="shadowsocks服务器上的简单配置"></a>shadowsocks服务器上的简单配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// file: /etc/shadowsocks.json</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>: <span class="string">"123.123.123.123"</span>, // 服务器的ip</span><br><span class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>: <span class="string">"1080"</span>,</span><br><span class="line">    <span class="string">"port_password"</span>:&#123;</span><br><span class="line">        <span class="string">"12306"</span>: <span class="string">"passwd"</span>        // ss客户端软件登录用的端口和密码</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"timeout"</span>:300,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,      // 网络密钥加密方式</span><br><span class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="进行SS的环境配置"><a href="#进行SS的环境配置" class="headerlink" title="进行SS的环境配置"></a>进行SS的环境配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-pip                <span class="comment"># 安装pip</span></span><br><span class="line">sudo apt install python-setuptools         <span class="comment"># 安装必要工具</span></span><br><span class="line">sudo pip install shadow<span class="comment">#socks              # 安装服务端的ss软件</span></span><br><span class="line">sudo vim /etc/ssconfig.json                <span class="comment"># 添加服务端的配置文件，内容如下</span></span><br><span class="line">ssserver -c /etc/ssconfig.json -d start    <span class="comment"># 在服务端根据刚刚的配置，启动ss</span></span><br></pre></td></tr></table></figure>
+<h3 id="服务器上的配置文件内容"><a href="#服务器上的配置文件内容" class="headerlink" title="服务器上的配置文件内容"></a>服务器上的配置文件内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// file: /etc/ssconfig.json</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>: <span class="string">"123.123.123.123"</span>, // 服务器的ip</span><br><span class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>: <span class="string">"1080"</span>,</span><br><span class="line">    <span class="string">"port_password"</span>:&#123;</span><br><span class="line">        <span class="string">"12306"</span>: <span class="string">"passwd"</span>        // 客户端软件登录用的端口和密码</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"timeout"</span>:300,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,      // 网络密钥加密方式</span><br><span class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -633,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器环境"><span class="nav-number">1.</span> <span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录服务器"><span class="nav-number">2.</span> <span class="nav-text">登录服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进行SS的环境配置"><span class="nav-number">3.</span> <span class="nav-text">进行SS的环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shadowsocks服务器上的简单配置"><span class="nav-number">3.1.</span> <span class="nav-text">shadowsocks服务器上的简单配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器环境"><span class="nav-number">1.</span> <span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录服务器"><span class="nav-number">2.</span> <span class="nav-text">登录服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进行SS的环境配置"><span class="nav-number">3.</span> <span class="nav-text">进行SS的环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器上的配置文件内容"><span class="nav-number">3.1.</span> <span class="nav-text">服务器上的配置文件内容</span></a></li></ol></li></ol></div>
             
 
           </div>
