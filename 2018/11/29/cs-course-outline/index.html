@@ -148,7 +148,7 @@
 <meta property="og:site_name" content="The Island">
 <meta property="og:description" content="专业课复习纲要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-29T05:48:14.953Z">
+<meta property="og:updated_time" content="2018-11-29T13:43:14.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机专业课复习纲要">
 <meta name="twitter:description" content="专业课复习纲要">
@@ -394,7 +394,7 @@
                 
               
 
-              <time title="创建时间：2018-11-29 00:00:00 / 修改时间：13:48:14" itemprop="dateCreated datePublished" datetime="2018-11-29T00:00:00+08:00">2018-11-29</time>
+              <time title="创建时间：2018-11-29 00:00:00 / 修改时间：21:43:14" itemprop="dateCreated datePublished" datetime="2018-11-29T00:00:00+08:00">2018-11-29</time>
             
 
             
@@ -531,19 +531,19 @@
 </tr>
 <tr>
 <td style="text-align:left">事件（顶点）的 vl</td>
-<td style="text-align:left">从汇点开始计算，min{vl(j) - weight(k,j)}；vl(汇点) = 0</td>
+<td style="text-align:left">从汇点开始计算，$ vl(k) = [ vl(j) - weight(k,j)]_{\min}$；vl(汇点) = ve(汇点)</td>
 </tr>
 <tr>
 <td style="text-align:left">活动（边）的 e</td>
-<td style="text-align:left">边的起点的ve</td>
+<td style="text-align:left">边的起点的 ve</td>
 </tr>
 <tr>
 <td style="text-align:left">活动（边）的 l</td>
-<td style="text-align:left">边的终点的vl-边的权重</td>
+<td style="text-align:left">边的终点的 vl $-$ 边的权重</td>
 </tr>
 <tr>
 <td style="text-align:left">活动（边）的 l-e</td>
-<td style="text-align:left">l - e = 0 的边就是关键路径</td>
+<td style="text-align:left">$l - e = 0$ 的边就是关键路径</td>
 </tr>
 </tbody>
 </table>
@@ -959,6 +959,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
