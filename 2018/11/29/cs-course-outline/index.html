@@ -142,10 +142,12 @@
 <meta property="og:site_name" content="The Island">
 <meta property="og:description" content="专业课复习纲要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-07T05:13:55.130Z">
+<meta property="og:image" content="https://flamywhale.github.io/images/201811/cpu_inititalization.png">
+<meta property="og:updated_time" content="2018-12-09T12:53:05.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机专业课复习纲要">
 <meta name="twitter:description" content="专业课复习纲要">
+<meta name="twitter:image" content="https://flamywhale.github.io/images/201811/cpu_inititalization.png">
 
 
 
@@ -407,7 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-07 13:13:55" itemprop="dateModified" datetime="2018-12-07T13:13:55+08:00">2018-12-07</time>
+                <time title="修改时间：2018-12-09 20:53:05" itemprop="dateModified" datetime="2018-12-09T20:53:05+08:00">2018-12-09</time>
               
             
           </span>
@@ -502,7 +504,12 @@
 </ul>
 </li>
 <li><a href="#计算机体系结构">计算机体系结构</a><ul>
-<li><a href="#计算机体系结构部分考试要求">计算机体系结构部分考试要求</a></li>
+<li><a href="#计算机体系结构部分考试要求">计算机体系结构部分考试要求</a><ul>
+<li><a href="#基于mips处理器的linux操作系统tlb例外过程">基于MIPS处理器的Linux操作系统TLB例外过程</a></li>
+<li><a href="#io通信中dma传输过程">I/O通信中DMA传输过程</a></li>
+<li><a href="#系统初始化时pci设备的探测过程">系统初始化时PCI设备的探测过程</a></li>
+</ul>
+</li>
 <li><a href="#计算机体系结构概论">计算机体系结构概论</a></li>
 <li><a href="#指令系统结构">指令系统结构</a><ul>
 <li><a href="#指令系统的演变">指令系统的演变</a></li>
@@ -511,7 +518,11 @@
 <li><a href="#存储管理">存储管理</a></li>
 </ul>
 </li>
-<li><a href="#计算机硬件结构">计算机硬件结构</a></li>
+<li><a href="#计算机硬件结构">计算机硬件结构</a><ul>
+<li><a href="#系统复位到操作系统启动的简要流程图">系统复位到操作系统启动的简要流程图</a></li>
+<li><a href="#设备探测及驱动加载">设备探测及驱动加载</a></li>
+</ul>
+</li>
 <li><a href="#cpu微结构">cpu微结构</a></li>
 </ul>
 </li>
@@ -747,7 +758,7 @@
 </ul>
 </li>
 <li>检测<ul>
-<li>死锁定理：S 为死锁 $\Leftrightarrow$ S 状态的资源分配图不可简化</li>
+<li>死锁定理：S 为死锁 $\Leftrightarrow$ S 状态的资源分配图不可简化</li>
 <li>资源剥夺法（挂起某些死锁进程，将其资源分配给其他死锁进程）</li>
 <li>撤销进程法（撤销部分或者全部死锁进程）</li>
 </ul>
@@ -815,7 +826,7 @@
 <td>多道固定分配</td>
 <td>有</td>
 <td>无</td>
-<td>①上下界寄存器、越界检查结构；②基地址寄存器、长度寄存器、动态地址转换机构</td>
+<td>①上下界寄存器、越界检查结构；②基地址寄存器、长度寄存器、动态地址转换机构</td>
 </tr>
 <tr>
 <td>多道可变分配</td>
@@ -849,7 +860,15 @@
 <li>C-SCAN</li>
 </ul>
 </li>
-<li>磁盘阵列；</li>
+<li>磁盘阵列；<ul>
+<li>RAID0</li>
+<li>RAID1</li>
+<li>RAID5</li>
+<li>RAID01</li>
+<li>RAID10</li>
+<li>RAID50</li>
+</ul>
+</li>
 </ol>
 <h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><ol>
 <li>文件系统特点与文件组织方式；<ul>
@@ -863,7 +882,7 @@
 </li>
 <li>目录的基本性质及其实现方法；<ul>
 <li><code>PCB</code> 信息<ul>
-<li><strong>基本信息</strong>：文件名、文件的物理位置、文件的逻辑*、文件的物理结构等；</li>
+<li><strong>基本信息</strong>：文件名、文件的物理位置、文件的逻辑、文件的物理结构等；</li>
 <li><strong>存取控制信息</strong>：文件的存取权限等；</li>
 <li><strong>使用信息</strong>：文件的建立时间、修改时间等；</li>
 </ul>
@@ -916,13 +935,57 @@
 <li style="list-style: none"><input type="checkbox"> 掌握从外部 I/O 与上层应用交互的整体软硬件过程</li>
 <li style="list-style: none"><input type="checkbox" checked> 掌握基于 MIPS 处理器的 Linux 操作系统 TLB 例外过程</li>
 <li style="list-style: none"><input type="checkbox" checked> 掌握 C 语言与指令系统的关系</li>
-<li style="list-style: none"><input type="checkbox"> 掌握系统初始化时 PCI 设备的探测过程</li>
-<li style="list-style: none"><input type="checkbox"> 掌握 I/O 通信中 DMA 传输过程</li>
-<li style="list-style: none"><input type="checkbox"> 能读懂 CMOS 电路，根据晶体管电路给出逻辑表达式</li>
+<li style="list-style: none"><input type="checkbox" checked> 掌握系统初始化时 PCI 设备的探测过程</li>
+<li style="list-style: none"><input type="checkbox" checked> 掌握 I/O 通信中 DMA 传输过程</li>
+<li style="list-style: none"><input type="checkbox" checked> 能读懂 CMOS 电路，根据晶体管电路给出逻辑表达式</li>
 <li style="list-style: none"><input type="checkbox"> 掌握先行进位加法器结构及其 verilog 实现</li>
 <li style="list-style: none"><input type="checkbox"> 掌握 Booth 编码和华莱士树</li>
 <li style="list-style: none"><input type="checkbox" checked> 掌握指令流水线原理，了解解决相关的方法，能够用时空图表达流水线的运行</li>
 </ul>
+<h4 id="基于MIPS处理器的Linux操作系统TLB例外过程"><a href="#基于MIPS处理器的Linux操作系统TLB例外过程" class="headerlink" title="基于MIPS处理器的Linux操作系统TLB例外过程"></a>基于MIPS处理器的Linux操作系统TLB例外过程</h4><ul>
+<li>TLB 例外<ul>
+<li>TLB Refill: TLB 未命中时</li>
+<li>TLB Invalid: TLB 命中，但V位为0；即相应物理页不在内存中</li>
+<li>TLB Modify: 写 TLB 且 TLB 命中但D位为0；即非法修改只读页</li>
+</ul>
+</li>
+<li><p>TLB Refill</p>
+<ul>
+<li><p><code>MIPS R4000</code> 处理器的 <code>TLB Refill</code> 程序</p>
+  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.set</span> <span class="keyword">noreorder</span></span><br><span class="line"><span class="keyword">.set </span>noat</span><br><span class="line"><span class="keyword">TLBrefillR4K:</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">mfc0 </span><span class="built_in">k1</span>, C0_CONTEXT</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">lw </span>  <span class="built_in">k0</span>, <span class="number">0</span>(<span class="built_in">k1</span>)</span><br><span class="line">    <span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">4</span>(<span class="built_in">k1</span>)</span><br><span class="line">    <span class="keyword">mtc0 </span><span class="built_in">k0</span>, C0_ENTRYLO0</span><br><span class="line">    <span class="keyword">mtc0 </span><span class="built_in">k1</span>, C0_ENTRYLO1</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">tlbwr</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">eret</span></span><br><span class="line"><span class="keyword">.set </span><span class="built_in">at</span></span><br><span class="line"><span class="meta">.set</span> reorder</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>MIPS</code> 处理器的 <code>Linux</code> 系统的 <code>TLB Refill</code></p>
+  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mfc0 </span><span class="built_in">k0</span>, CP0_BADVADDR <span class="comment"># 取发生TLB失效的地址</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">22</span>       <span class="comment"># 最高10位是一级页表索引</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, pgd_current  <span class="comment"># 取页表入口地址</span></span><br><span class="line"><span class="keyword">sll </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">2</span>        <span class="comment"># 每项 4B，左移2位得到偏移</span></span><br><span class="line"><span class="keyword">addu </span><span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="built_in">k0</span>       <span class="comment"># k1指向下一级页表入口</span></span><br><span class="line"><span class="keyword">mfc0 </span><span class="built_in">k0</span>, CP0_CONTEXT  <span class="comment"># CONTEXT包含失效的虚拟页号</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">0</span>(<span class="built_in">k1</span>)        <span class="comment"># 取出第二级页表</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">1</span></span><br><span class="line"><span class="comment"># 第二级页表项每个表项管理两个物理页，每页 4B</span></span><br><span class="line"><span class="comment"># 所以偏移是按8B计算，即逻辑左移三位</span></span><br><span class="line"><span class="keyword">and </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">0xff8</span>    <span class="comment"># 算出第二级页表的偏移</span></span><br><span class="line"><span class="keyword">addu </span><span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="built_in">k0</span>       <span class="comment"># k1为最终表项的地址</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k0</span>, <span class="number">0</span>(<span class="built_in">k1</span>)        <span class="comment"># 成对存放，一个偶数页</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">4</span>(<span class="built_in">k1</span>)        <span class="comment"># 奇数页</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">6</span>        <span class="comment"># 移除6位exts</span></span><br><span class="line"><span class="keyword">mtc0 </span><span class="built_in">k0</span>, CP0_ENTRYLO0 <span class="comment"># 写入偶数页表项</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="number">6</span></span><br><span class="line"><span class="keyword">mtc0 </span><span class="built_in">k1</span>, CP0_ENTRYLO1 <span class="comment"># 写入奇数页表项</span></span><br><span class="line"><span class="keyword">tlbwr </span>                <span class="comment"># 随机写入TLB表项</span></span><br><span class="line"><span class="keyword">eret </span>                 <span class="comment"># 异常返回</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>MIPS</code> 架构下 <code>Linux</code> 系统 <code>TLB Exception</code> 伪代码</p>
+  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TLB refill</span></span><br><span class="line">TLB refill exception(<span class="number">0x80000000</span>):</span><br><span class="line">    get <span class="keyword">badvaddr, </span>pgd<span class="comment">;</span></span><br><span class="line">    pte_table ptr = <span class="keyword">badvaddr&gt;&gt;2&lt;2 </span>+ pgd<span class="comment">;</span></span><br><span class="line">    get <span class="built_in">context</span>, offset = <span class="built_in">context</span>&gt;&gt;<span class="number">1</span> &amp; <span class="number">0xff8</span><span class="comment">;</span></span><br><span class="line">    load offset(ptr), (offset+<span class="number">4</span>)(ptr)<span class="comment">;</span></span><br><span class="line">    right <span class="keyword">shift </span><span class="number">6</span> <span class="keyword">bits, </span>write to entrylo[<span class="number">0</span>:<span class="number">1</span>]<span class="comment">;</span></span><br><span class="line">    <span class="keyword">tlbwr;</span></span><br><span class="line"><span class="keyword"># </span>TLB modify</span><br><span class="line">TLB modified exception(<span class="number">0x800000180</span>:handle_mod):</span><br><span class="line">    load pte<span class="comment">;</span></span><br><span class="line">    if(__PAGE_WRITE set, set ACCESSED<span class="title">|MODIFIED|</span>VALID<span class="title">|DIRTY)</span></span><br><span class="line"><span class="title">        reload tlb, tlbwi;</span></span><br><span class="line"><span class="title">    else</span></span><br><span class="line"><span class="title">        DO_FAULT(1);</span></span><br><span class="line"><span class="title"># TLB load</span></span><br><span class="line"><span class="title">TLB load exception(0x80000180:handle_tlbl):</span></span><br><span class="line"><span class="title">    load pte;</span></span><br><span class="line"><span class="title">    if(__PAGE_PRESENT &amp;&amp; _PAGE_READ)</span></span><br><span class="line"><span class="title">        set ACCESSED|</span>VALID<span class="comment">;</span></span><br><span class="line">    else</span><br><span class="line">        DO_FAULT(<span class="number">0</span>)<span class="comment">;</span></span><br><span class="line"><span class="comment"># TLB store</span></span><br><span class="line">TLB store exception(<span class="number">0x80000180</span>:handle_tlbs):</span><br><span class="line">    load pte<span class="comment">;</span></span><br><span class="line">    if(__PAGE_PRESENT &amp;&amp; _PAGE_WRITE)</span><br><span class="line">        set ACCESSED<span class="title">|VALID|</span>MODIFIED<span class="title">|DIRTY;</span></span><br><span class="line"><span class="title">    else</span></span><br><span class="line"><span class="title">        DO_FAULT(1);</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="I-O通信中DMA传输过程"><a href="#I-O通信中DMA传输过程" class="headerlink" title="I/O通信中DMA传输过程"></a>I/O通信中DMA传输过程</h4><ol>
+<li>处理器为 DMA 请求预先分配一段地址空间；</li>
+<li>处理器设置 DMA 控制器参数。<ul>
+<li>设备标识</li>
+<li>数据传送的方向 (内存 → 硬盘 or 硬盘 → 内存)</li>
+<li>内存中用于数据传送的源地址或目标地址</li>
+<li>传输的字节数量</li>
+<li>简而言之，就是明确数据的<strong>我是谁、从哪来、要去哪儿、我要干嘛、我有几个伙伴要一起走</strong></li>
+</ul>
+</li>
+<li>DMA 控制器进行数据传输。</li>
+<li>DMA 控制器向处理器发出一个中断，通知处理器数据传送的结果（成功或者出错以及错误信息）。</li>
+<li>处理器完成本次 DMA 请求，可以开始新的 DMA 请求。</li>
+</ol>
+<h4 id="系统初始化时PCI设备的探测过程"><a href="#系统初始化时PCI设备的探测过程" class="headerlink" title="系统初始化时PCI设备的探测过程"></a>系统初始化时PCI设备的探测过程</h4><ol>
+<li>将初始总线号、初始设备号、初始功能号设为0；</li>
+<li>使用当前的总线号、设备号、功能号组成一个配置空间地址；使用该地址，访问其0号寄存器，检查其设备号；</li>
+<li>如果读出全为1或全0，表示没有设备；</li>
+<li>如果该设备为有效设备，检查每个BAR所需空间大小，并收集相关信息；</li>
+<li>检测其是否为多功能设备，如果是则将功能号加1重复扫描，执行第2步；</li>
+<li>如果该设备为桥设备，则给该桥配置一个新的总线号，再使用该总线号，从设备号0、功能号0开始递归调用，执行第2步；</li>
+<li>如果设备号非31，则设备号加1，继续执行第2步；如果设备号为31，且总线号为0，表示扫描结束；如果总线号非0，则退回上一层递归调用。</li>
+</ol>
 <h3 id="计算机体系结构概论"><a href="#计算机体系结构概论" class="headerlink" title="计算机体系结构概论"></a>计算机体系结构概论</h3><ol>
 <li>计算机体系结构的发展</li>
 <li>计算机系统层次结构<ul>
@@ -1015,33 +1078,18 @@
 </ul>
 </li>
 </ul>
-<h4 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h4><p>MIPS处理器对虚存系统的支持，LINUX操作系统的存储管理</p>
-<ul>
-<li>TLB 例外<ul>
-<li>TLB Refill: TLB 未命中时</li>
-<li>TLB Invalid: TLB 命中，但V位为0；即相应物理页不在内存中</li>
-<li>TLB Modify: 写 TLB 且 TLB 命中但D位为0；即非法修改只读页</li>
-</ul>
-</li>
-<li><p>TLB Refill</p>
-<ul>
-<li><p><code>MIPS R4000</code> 处理器的 <code>TLB Refill</code> 程序</p>
-  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.set</span> <span class="keyword">noreorder</span></span><br><span class="line"><span class="keyword">.set </span>noat</span><br><span class="line"><span class="keyword">TLBrefillR4K:</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">mfc0 </span><span class="built_in">k1</span>, C0_CONTEXT</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">lw </span>  <span class="built_in">k0</span>, <span class="number">0</span>(<span class="built_in">k1</span>)</span><br><span class="line">    <span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">4</span>(<span class="built_in">k1</span>)</span><br><span class="line">    <span class="keyword">mtc0 </span><span class="built_in">k0</span>, C0_ENTRYLO0</span><br><span class="line">    <span class="keyword">mtc0 </span><span class="built_in">k1</span>, C0_ENTRYLO1</span><br><span class="line">    <span class="keyword">nop</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">tlbwr</span></span><br><span class="line"><span class="keyword"> </span>   <span class="keyword">eret</span></span><br><span class="line"><span class="keyword">.set </span><span class="built_in">at</span></span><br><span class="line"><span class="meta">.set</span> reorder</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>MIPS</code> 处理器的 <code>Linux</code> 系统的 <code>TLB Refill</code></p>
-  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mfc0 </span><span class="built_in">k0</span>, CP0_BADVADDR <span class="comment"># 取发生TLB失效的地址</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">22</span>       <span class="comment"># 最高10位是一级页表索引</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, pgd_current  <span class="comment"># 取页表入口地址</span></span><br><span class="line"><span class="keyword">sll </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">2</span>        <span class="comment"># 每项 4B，左移2位得到偏移</span></span><br><span class="line"><span class="keyword">addu </span><span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="built_in">k0</span>       <span class="comment"># k1指向下一级页表入口</span></span><br><span class="line"><span class="keyword">mfc0 </span><span class="built_in">k0</span>, CP0_CONTEXT  <span class="comment"># CONTEXT包含失效的虚拟页号</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">0</span>(<span class="built_in">k1</span>)        <span class="comment"># 取出第二级页表</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">1</span></span><br><span class="line"><span class="comment"># 第二级页表项每个表项管理两个物理页，每页 4B</span></span><br><span class="line"><span class="comment"># 所以偏移是按8B计算，即逻辑左移三位</span></span><br><span class="line"><span class="keyword">and </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">0xff8</span>    <span class="comment"># 算出第二级页表的偏移</span></span><br><span class="line"><span class="keyword">addu </span><span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="built_in">k0</span>       <span class="comment"># k1为最终表项的地址</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k0</span>, <span class="number">0</span>(<span class="built_in">k1</span>)        <span class="comment"># 成对存放，一个偶数页</span></span><br><span class="line"><span class="keyword">lw </span>  <span class="built_in">k1</span>, <span class="number">4</span>(<span class="built_in">k1</span>)        <span class="comment"># 奇数页</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k0</span>, <span class="built_in">k0</span>, <span class="number">6</span>        <span class="comment"># 移除6位exts</span></span><br><span class="line"><span class="keyword">mtc0 </span><span class="built_in">k0</span>, CP0_ENTRYLO0 <span class="comment"># 写入偶数页表项</span></span><br><span class="line"><span class="keyword">srl </span> <span class="built_in">k1</span>, <span class="built_in">k1</span>, <span class="number">6</span></span><br><span class="line"><span class="keyword">mtc0 </span><span class="built_in">k1</span>, CP0_ENTRYLO1 <span class="comment"># 写入奇数页表项</span></span><br><span class="line"><span class="keyword">tlbwr </span>                <span class="comment"># 随机写入TLB表项</span></span><br><span class="line"><span class="keyword">eret </span>                 <span class="comment"># 异常返回</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>MIPS</code> 架构下 <code>Linux</code> 系统 <code>TLB Exception</code> 伪代码</p>
-  <figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TLB refill</span></span><br><span class="line">TLB refill exception(<span class="number">0x80000000</span>):</span><br><span class="line">    get <span class="keyword">badvaddr, </span>pgd<span class="comment">;</span></span><br><span class="line">    pte_table ptr = <span class="keyword">badvaddr&gt;&gt;2&lt;2 </span>+ pgd<span class="comment">;</span></span><br><span class="line">    get <span class="built_in">context</span>, offset = <span class="built_in">context</span>&gt;&gt;<span class="number">1</span> &amp; <span class="number">0xff8</span><span class="comment">;</span></span><br><span class="line">    load offset(ptr), (offset+<span class="number">4</span>)(ptr)<span class="comment">;</span></span><br><span class="line">    right <span class="keyword">shift </span><span class="number">6</span> <span class="keyword">bits, </span>write to entrylo[<span class="number">0</span>:<span class="number">1</span>]<span class="comment">;</span></span><br><span class="line">    <span class="keyword">tlbwr;</span></span><br><span class="line"><span class="keyword"># </span>TLB modify</span><br><span class="line">TLB modified exception(<span class="number">0x800000180</span>:handle_mod):</span><br><span class="line">    load pte<span class="comment">;</span></span><br><span class="line">    if(__PAGE_WRITE set, set ACCESSED<span class="title">|MODIFIED|</span>VALID<span class="title">|DIRTY)</span></span><br><span class="line"><span class="title">        reload tlb, tlbwi;</span></span><br><span class="line"><span class="title">    else</span></span><br><span class="line"><span class="title">        DO_FAULT(1);</span></span><br><span class="line"><span class="title"># TLB load</span></span><br><span class="line"><span class="title">TLB load exception(0x80000180:handle_tlbl):</span></span><br><span class="line"><span class="title">    load pte;</span></span><br><span class="line"><span class="title">    if(__PAGE_PRESENT &amp;&amp; _PAGE_READ)</span></span><br><span class="line"><span class="title">        set ACCESSED|</span>VALID<span class="comment">;</span></span><br><span class="line">    else</span><br><span class="line">        DO_FAULT(<span class="number">0</span>)<span class="comment">;</span></span><br><span class="line"><span class="comment"># TLB store</span></span><br><span class="line">TLB store exception(<span class="number">0x80000180</span>:handle_tlbs):</span><br><span class="line">    load pte<span class="comment">;</span></span><br><span class="line">    if(__PAGE_PRESENT &amp;&amp; _PAGE_WRITE)</span><br><span class="line">        set ACCESSED<span class="title">|VALID|</span>MODIFIED<span class="title">|DIRTY;</span></span><br><span class="line"><span class="title">    else</span></span><br><span class="line"><span class="title">        DO_FAULT(1);</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h4><p><code>MIPS</code> 处理器对虚存系统的支持，<code>Linux</code> 操作系统的存储管理。</p>
 <h3 id="计算机硬件结构"><a href="#计算机硬件结构" class="headerlink" title="计算机硬件结构"></a>计算机硬件结构</h3><ol>
 <li>计算机组成原理和结构<br> 冯诺依曼结构，计算机硬件结构的演进，处理器与 I/O 间的通信，计算机系统主要组成部件</li>
 <li>计算机总线接口技术<br> 片上总线，内存总线，I/O 总线</li>
 <li>计算机系统启动过程<br> 处理器核初始化，总线接口初始化，设备探测及驱动加载</li>
 </ol>
+<h4 id="系统复位到操作系统启动的简要流程图"><a href="#系统复位到操作系统启动的简要流程图" class="headerlink" title="系统复位到操作系统启动的简要流程图"></a>系统复位到操作系统启动的简要流程图</h4><ul>
+<li>系统复位到操作系统启动的简要流程图<br>  <img src="/images/201811/cpu_inititalization.png" alt="系统复位到操作系统启动的简要流程图"></li>
+</ul>
+<h4 id="设备探测及驱动加载"><a href="#设备探测及驱动加载" class="headerlink" title="设备探测及驱动加载"></a>设备探测及驱动加载</h4><ul>
+<li>PCI 协议下 I/O 的系统空间被分为三部分：配置空间、IO 空间和 Memory 空间。</li>
+</ul>
 <h3 id="cpu微结构"><a href="#cpu微结构" class="headerlink" title="cpu微结构"></a>cpu微结构</h3><ol>
 <li>二进制与逻辑电路<br> 计算机中数的表示，CMOS 逻辑电路</li>
 <li>简单运算器设计<br> 定点补码加法，减法，比较，移位</li>
@@ -1251,7 +1299,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构考试要求"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构考试要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绪论"><span class="nav-number">2.2.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性表"><span class="nav-number">2.3.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆栈与队列"><span class="nav-number">2.4.</span> <span class="nav-text">堆栈与队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组和广义表"><span class="nav-number">2.5.</span> <span class="nav-text">数组和广义表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树与二叉树"><span class="nav-number">2.6.</span> <span class="nav-text">树与二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图"><span class="nav-number">2.7.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键路径"><span class="nav-number">2.7.1.</span> <span class="nav-text">关键路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">2.8.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.9.</span> <span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">3.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统考试要求"><span class="nav-number">3.1.</span> <span class="nav-text">操作系统考试要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统概述"><span class="nav-number">3.2.</span> <span class="nav-text">操作系统概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">3.3.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程、对称多处理smp和微内核"><span class="nav-number">3.4.</span> <span class="nav-text">线程、对称多处理smp和微内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理器调度"><span class="nav-number">3.5.</span> <span class="nav-text">处理器调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发性"><span class="nav-number">3.6.</span> <span class="nav-text">并发性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件实现互斥小结"><span class="nav-number">3.6.1.</span> <span class="nav-text">软件实现互斥小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管程小结"><span class="nav-number">3.6.2.</span> <span class="nav-text">管程小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者消费者问题"><span class="nav-number">3.6.3.</span> <span class="nav-text">生产者消费者问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器管理"><span class="nav-number">3.7.</span> <span class="nav-text">存储器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分区管理方式小结"><span class="nav-number">3.7.1.</span> <span class="nav-text">分区管理方式小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备管理和磁盘调度"><span class="nav-number">3.8.</span> <span class="nav-text">设备管理和磁盘调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统"><span class="nav-number">3.9.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#外存分配方式小结"><span class="nav-number">3.9.1.</span> <span class="nav-text">外存分配方式小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统"><span class="nav-number">3.10.</span> <span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统安全"><span class="nav-number">3.11.</span> <span class="nav-text">操作系统安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机体系结构"><span class="nav-number">4.</span> <span class="nav-text">计算机体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机体系结构部分考试要求"><span class="nav-number">4.1.</span> <span class="nav-text">计算机体系结构部分考试要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机体系结构概论"><span class="nav-number">4.2.</span> <span class="nav-text">计算机体系结构概论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令系统结构"><span class="nav-number">4.3.</span> <span class="nav-text">指令系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令系统的演变"><span class="nav-number">4.3.1.</span> <span class="nav-text">指令系统的演变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令集结构"><span class="nav-number">4.3.2.</span> <span class="nav-text">指令集结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常与中断"><span class="nav-number">4.3.3.</span> <span class="nav-text">异常与中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储管理"><span class="nav-number">4.3.4.</span> <span class="nav-text">存储管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件结构"><span class="nav-number">4.4.</span> <span class="nav-text">计算机硬件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cpu微结构"><span class="nav-number">4.5.</span> <span class="nav-text">cpu微结构</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构考试要求"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构考试要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绪论"><span class="nav-number">2.2.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性表"><span class="nav-number">2.3.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆栈与队列"><span class="nav-number">2.4.</span> <span class="nav-text">堆栈与队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组和广义表"><span class="nav-number">2.5.</span> <span class="nav-text">数组和广义表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树与二叉树"><span class="nav-number">2.6.</span> <span class="nav-text">树与二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图"><span class="nav-number">2.7.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键路径"><span class="nav-number">2.7.1.</span> <span class="nav-text">关键路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">2.8.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">2.9.</span> <span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">3.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统考试要求"><span class="nav-number">3.1.</span> <span class="nav-text">操作系统考试要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统概述"><span class="nav-number">3.2.</span> <span class="nav-text">操作系统概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">3.3.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程、对称多处理smp和微内核"><span class="nav-number">3.4.</span> <span class="nav-text">线程、对称多处理smp和微内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理器调度"><span class="nav-number">3.5.</span> <span class="nav-text">处理器调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发性"><span class="nav-number">3.6.</span> <span class="nav-text">并发性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件实现互斥小结"><span class="nav-number">3.6.1.</span> <span class="nav-text">软件实现互斥小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管程小结"><span class="nav-number">3.6.2.</span> <span class="nav-text">管程小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者消费者问题"><span class="nav-number">3.6.3.</span> <span class="nav-text">生产者消费者问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器管理"><span class="nav-number">3.7.</span> <span class="nav-text">存储器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分区管理方式小结"><span class="nav-number">3.7.1.</span> <span class="nav-text">分区管理方式小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备管理和磁盘调度"><span class="nav-number">3.8.</span> <span class="nav-text">设备管理和磁盘调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统"><span class="nav-number">3.9.</span> <span class="nav-text">文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#外存分配方式小结"><span class="nav-number">3.9.1.</span> <span class="nav-text">外存分配方式小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式系统"><span class="nav-number">3.10.</span> <span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统安全"><span class="nav-number">3.11.</span> <span class="nav-text">操作系统安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机体系结构"><span class="nav-number">4.</span> <span class="nav-text">计算机体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机体系结构部分考试要求"><span class="nav-number">4.1.</span> <span class="nav-text">计算机体系结构部分考试要求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于MIPS处理器的Linux操作系统TLB例外过程"><span class="nav-number">4.1.1.</span> <span class="nav-text">基于MIPS处理器的Linux操作系统TLB例外过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#I-O通信中DMA传输过程"><span class="nav-number">4.1.2.</span> <span class="nav-text">I/O通信中DMA传输过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统初始化时PCI设备的探测过程"><span class="nav-number">4.1.3.</span> <span class="nav-text">系统初始化时PCI设备的探测过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机体系结构概论"><span class="nav-number">4.2.</span> <span class="nav-text">计算机体系结构概论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指令系统结构"><span class="nav-number">4.3.</span> <span class="nav-text">指令系统结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令系统的演变"><span class="nav-number">4.3.1.</span> <span class="nav-text">指令系统的演变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令集结构"><span class="nav-number">4.3.2.</span> <span class="nav-text">指令集结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常与中断"><span class="nav-number">4.3.3.</span> <span class="nav-text">异常与中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储管理"><span class="nav-number">4.3.4.</span> <span class="nav-text">存储管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机硬件结构"><span class="nav-number">4.4.</span> <span class="nav-text">计算机硬件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统复位到操作系统启动的简要流程图"><span class="nav-number">4.4.1.</span> <span class="nav-text">系统复位到操作系统启动的简要流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备探测及驱动加载"><span class="nav-number">4.4.2.</span> <span class="nav-text">设备探测及驱动加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cpu微结构"><span class="nav-number">4.5.</span> <span class="nav-text">cpu微结构</span></a></li></ol></li></ol></div>
             
 
           </div>
